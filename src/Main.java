@@ -1,17 +1,22 @@
 import java.util.List;
-import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<String> listaOriginal = List.of("Hola", "Mundo", "Java");
+        List<String> listaOriginal = List.of("Hola", "mundO", "java");
 
         System.out.println("--------------Lista original---------------");
         listaOriginal.stream().forEach(System.out::println);
 
         System.out.println("--------------Lista Transformada-----------");
-        listaOriginal.stream().map(palabra -> palabra.toUpperCase()).forEach(System.out::println);
+        transformador(listaOriginal).stream().forEach(System.out::println);
 
     }
+
+    public static List<String> transformador(List<String> lista){
+        return lista.stream().map(palabra -> palabra.toUpperCase()).collect(Collectors.toList());
+    }
+
 }
