@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.function.Function;
 
 public class Main {
 
@@ -6,12 +7,11 @@ public class Main {
 
         List<String> listaOriginal = List.of("Hola", "Mundo", "Java");
 
-        Transformador transformadorMayusculas = s -> s.toUpperCase();
+        System.out.println("--------------Lista original---------------");
+        listaOriginal.stream().forEach(System.out::println);
 
-        List<String> listaTransformada = Transformador.TransformadorDeStrings.transformarLista(listaOriginal, transformadorMayusculas);
-
-        System.out.println("Lista Original: " + listaOriginal);
-        System.out.println("Lista Transformada: " + listaTransformada);
+        System.out.println("--------------Lista Transformada-----------");
+        listaOriginal.stream().map(palabra -> palabra.toUpperCase()).forEach(System.out::println);
 
     }
 }
